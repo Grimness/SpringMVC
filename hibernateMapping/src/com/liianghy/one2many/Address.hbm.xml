@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 管理对应某张数据库表的映射关系 -->
+<hibernate-mapping package="com.liianghy.one2many">
+	<class name="Address" table="t_address">
+			<id name="id">
+				<generator class="native"></generator>
+			</id>
+			<property name="province" length="50"></property>
+			<property name="city" length="20"></property>
+			<property name="code" length="20"></property>
+			<property name="address" length="300"></property>
+			
+			<!-- 多对一映射 
+				name  映射对象的属性
+				class   对象的类型
+				column  对象属性（外键字段）
+			-->
+			<many-to-one name="user" class="User" column="user_id"></many-to-one>
+			
+	</class>
+</hibernate-mapping>
+
+
+

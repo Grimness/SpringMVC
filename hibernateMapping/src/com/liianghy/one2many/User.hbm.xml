@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 管理对应某张数据库表的映射关系 -->
+<hibernate-mapping package="com.liianghy.one2many">
+	<class name="User" table="t_user2">
+			<id name="id">
+					<generator class="native"></generator>
+			</id>
+			<property name="name"  length="50"></property>
+			<property name="age"></property>
+			<property name="sex" type="character"></property>
+			
+			<!-- 一对多关系映射 set
+				name  对应的集合属性
+				table  集合属性对应的表（可选  如果不选  会自动查找对应配置文件中的表）
+				key   集合表的外键字段
+				class  集合的类型
+			 -->
+			<set name="addressSet" table="t_address">
+					<key column="user_id"></key>
+					<one-to-many class="Address"/>
+			</set>
+			
+	</class>
+</hibernate-mapping>
+
+
+

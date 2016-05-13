@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 管理对应某张数据库表的映射关系 -->
+<hibernate-mapping package="com.liianghy.entity">
+	<class name="User" table="t_user">
+	<!-- 主键 -->
+		<id name="id">
+				<generator class="native"></generator>
+		</id>
+		<!-- 其他字段  name指属性名称  column值数据表字段名-->
+		<property name="name" length="50" ></property>
+		<!-- set集合映射 ,   关联的数据表  
+				name  对应的set集合
+				table  集合是从哪个表获取
+				
+				key   集合表的外键
+				
+				element   集合表的 字段
+		-->
+		<set name="addressSet" table="t_addressSet">
+				<key column="user_id"></key>
+				<element column="address" type="string"></element>
+		</set>
+		<!-- List集合
+			index   集合表的排序字段
+		 -->
+		<list name="addressList" table="t_addressList">
+				<key column="user_id"></key>
+				<index column="inx" type="int"></index>
+				<element column="address" type="string"></element>
+		</list>
+		<!-- map集合
+			map-key    map中key对应的字段
+			element      map中value对应的字段
+		 -->
+		 <map name="addressMap" table="t_addressMap">
+		 		<key column="user_id"></key>
+				<map-key column="shortName" type="string"></map-key>
+				<element column="address" type="string"></element>
+		 </map>
+	</class>
+</hibernate-mapping>
+
+
+
