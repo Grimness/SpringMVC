@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:jee="http://www.springframework.org/schema/jee"
+     xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/jee
+     http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+<!--
+		 配置IOC容去创建对象
+			id与name的区别
+			都可以引用IOC容器中的对象
+			 
+			id  不可重名  不能以数字开头
+			
+			name  可重名  可定义多个名称  用空格或逗号隔开
+ -->
+ <!-- 创建User对象 -->
+	<bean id="user" name="user1" class="com.lilianghy.demo3_ioc.User"></bean>
+	
+	
+
+</beans>
