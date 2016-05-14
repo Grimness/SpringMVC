@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:jee="http://www.springframework.org/schema/jee"
+     xmlns:p="http://www.springframework.org/schema/p" 
+     xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/jee
+     http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+<!-- 通过有参构造函数注入属性值
+	<bean id="user" class="com.lilianghy.dependencyInjection.User">
+		<constructor-arg type="int" value="1"></constructor-arg>
+		<constructor-arg type="java.lang.String" value="天明"></constructor-arg>
+	</bean>
+	 -->
+	 <!-- 通过set方法注入属性值 
+	<bean id="user" class="com.lilianghy.dependencyInjection.User">
+		<property name="id" value="1"></property>
+		<property name="name" value="杨过"></property>
+	</bean>
+	-->
+	<!-- P:名称空间注入属性值 -->
+	<bean id="user" class="com.lilianghy.dependencyInjection.User" p:id="100" p:name="小龙女"></bean>
+</beans>

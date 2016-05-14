@@ -13,7 +13,7 @@ public class App2 {
 		//加载Spring配置文件  applicationContext.xml
 //       System.out.println(applicationContext.getBean("user"));
 //       System.out.println(applicationContext.getBean("str"));
-			System.out.println(applicationContext.getBean("user2"));
+			System.out.println(applicationContext.getBean("user3"));
         
 	}
 	

@@ -31,17 +31,27 @@
  	<!--默认使用无参数构造器创建对象  
 	<bean id="user"  class="com.lilianghy.demo3_ioc.User"></bean>
 	-->
-	<!-- 创建String 对象   值是Jack -->
+	<!-- 创建String 对象   值是Jack
 	<bean id="str" class="java.lang.String">
 		<constructor-arg value="jack"></constructor-arg>
 	</bean>
+	 -->
 	<!-- 创建User对象 id是1  name是 天明 
 		使用带参数的构造器创建对象
-	-->
+	
 	<bean id="user2" class="com.lilianghy.demo3_ioc.User">
-		<constructor-arg  type="java.lang.String" value="天明"></constructor-arg>
+		<constructor-arg ref="str"></constructor-arg>
 		<constructor-arg    type="int" value="1"></constructor-arg>
 	</bean>
+	-->
+	<!-- 
+		工厂创建对象
+		
+	静态方法创建对象 -->
+	<bean id="user3"  class="com.lilianghy.demo3_ioc.BeanFactory" factory-method="getStaticUser"></bean>
 	
-
+	<!-- 非静态方法创建
+	<bean id="BeanFactory" class="com.lilianghy.demo3_ioc.BeanFactory"></bean>
+	<bean id="user4" factory-bean="BeanFactory" factory-method="getUser"></bean>
+	 -->
 </beans>
